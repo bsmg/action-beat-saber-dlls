@@ -1,4 +1,4 @@
-import { addPath, getInput, setFailed } from '@actions/core'
+import { addPath, debug, getInput, setFailed } from '@actions/core'
 import JSZip from 'jszip'
 import fetch from 'node-fetch'
 import { resolve } from 'path'
@@ -23,11 +23,13 @@ const main = async () => {
   const directory = resolve(dir)
   await extractToDir(directory, files)
 
+  debug(`Extracted to ${directory}`)
   addPath(directory)
 }
 
 const fetchZip: () => Promise<JSZip> = async () => {
   const url = `https://github.com/${REPO_SLUG}/archive/${REPO_BRANCH}.zip`
+  debug(`Fetching ZIP from ${url}`)
 
   const resp = await fetch(url)
   if (resp.ok === false) throw new Error('Failed to download archive')

@@ -1,3 +1,4 @@
+import { debug } from '@actions/core'
 import fetch from 'node-fetch'
 import { rcompare } from 'semver'
 import { REPO_BRANCH, REPO_SLUG, VERSION_JSON } from './constants'
@@ -30,6 +31,7 @@ const semverToVer: (v: string) => string = v => {
 
 export const fetchVersions: () => Promise<VersionMap> = async () => {
   const url = `https://raw.githubusercontent.com/${REPO_SLUG}/${REPO_BRANCH}/${VERSION_JSON}`
+  debug(`Fetching version info from ${url}`)
 
   const resp = await fetch(url)
   if (resp.ok === false) throw new Error('Failed to get version info')
