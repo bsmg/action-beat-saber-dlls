@@ -8,12 +8,23 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "@types/jszip": "^3.1.6",
     "@types/node": "^12.12.14",
+    "@types/node-fetch": "^2.5.4",
+    "@types/semver": "^6.2.0",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.0",
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.0",
+    "@actions/io": "^1.0.1",
+    "jszip": "^3.2.2",
+    "node-fetch": "^2.6.0",
+    "p-limit": "^2.2.1",
+    "semver": "^6.3.0"
   }
 }

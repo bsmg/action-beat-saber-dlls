@@ -1,0 +1,18 @@
+name: Beat Saber DLLs
+description: Fetch Beat Saber / BSIPA DLLs for use in CI
+author: lolPants
+branding:
+  icon: alert-circle
+  color: blue
+inputs:
+  version:
+    description: Beat Saber Version, Manifest or simply `latest`
+    required: false
+    default: latest
+  directory:
+    description: Directory to extract DLLs to (defaults to `/beat-saber-dlls`)
+    required: false
+    default: '/beat-saber-dlls'
+runs:
+  using: node12
+  main: dist/index.js
