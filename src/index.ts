@@ -1,6 +1,7 @@
 import { addPath, getInput, setFailed } from '@actions/core'
 import JSZip from 'jszip'
 import fetch from 'node-fetch'
+import { resolve } from 'path'
 import { REPO_BRANCH, REPO_SLUG } from './constants'
 import { extractToDir } from './extract'
 import { fetchVersions } from './versions'
@@ -18,7 +19,8 @@ const main = async () => {
   const fileRX = new RegExp(`${version}/.+`)
   const files = zip.file(fileRX)
 
-  const directory = getInput('directory') || '/beat-saber-dlls'
+  const dir = getInput('directory') || '/beat-saber-dlls'
+  const directory = resolve(dir)
   await extractToDir(directory, files)
 
   addPath(directory)
