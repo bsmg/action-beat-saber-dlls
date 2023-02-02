@@ -28,7 +28,7 @@
   "dependencies": {
     "@actions/core": "^1.2.0",
     "@actions/io": "^1.0.1",
-    "jszip": "^3.2.2",
+    "jszip": "^3.8.0",
     "node-fetch": "^2.6.1",
     "p-limit": "^2.2.1",
     "semver": "^6.3.0"
